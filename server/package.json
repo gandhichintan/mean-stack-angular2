@@ -1,0 +1,30 @@
+{
+  "name": "mean-stack-angular2",
+  "version": "1.0.0",
+  "description": "best practice for mean stack using angular 2",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "mean",
+    "angular2"
+  ],
+  "author": "Chintan Gandhi",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "express-jwt": "^5.3.0",
+    "jsonwebtoken": "^7.4.0",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.26",
+    "mongoskin": "^2.1.0",
+    "q": "^1.5.0",
+    "request": "^2.81.0",
+    "rootpath": "^0.1.2"
+  }
+}
