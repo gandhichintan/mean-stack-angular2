@@ -1,43 +1,43 @@
 'use strict';
 
-import {Component,OnInit} from '@angule/core';
-import {Router,ActivateRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import {AlerService,AuthenticationService} from '../services/index';
+import { AlertService, AuthenticationService } from '../services/index';
 
 @Component({
-    moduleId:module.id,
-    templateUrl:'login.component.html'
+    moduleId: module.id,
+    templateUrl: 'login.component.html'
 })
-export class LoginComponent impliments OnInit {
-    model:any = {};
+export class LoginComponent implements OnInit {
+    model: any = {};
     loading = false;
-    returnUrl:string;
+    returnUrl: string;
 
     constructor(
-        private route:ActivateRoute,
-        private router:Router,
-        private authenticationService : AuthenticationService,
-        private alertService : AlertService
-    ) {}
+        private route: ActivatedRoute,
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private alertService: AlertService
+    ) { }
 
-    ngOnInit(){
+    ngOnInit() {
         //reset login status
         this.authenticationService.logout();
 
         //get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl']||'/';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
-    login(){
+    login() {
         this.loading = true;
-        this.authenticationService.login(this.model.username,this.model.password)
-        .subscribe(
-            data =>{
+        this.authenticationService.login(this.model.username, this.model.password)
+            .subscribe(
+            data => {
                 this.router.navigate([this.returnUrl])
             },
             error => {
-                this.alertService.error(error_body);
+                this.alertService.error(error._body);
                 this.loading = false;
             });
     }

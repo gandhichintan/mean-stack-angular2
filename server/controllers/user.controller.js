@@ -1,6 +1,5 @@
 'use strict';
 
-//https://github.com/cornflourblue/mean-angular2-registration-login-example
 
 var config = require('config.json');
 var express = require('express');

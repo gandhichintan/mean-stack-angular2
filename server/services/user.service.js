@@ -2,11 +2,11 @@
 
 var config = require('config.json');
 var _ = require('lodash');
-var token = require('jwtwebtoken');
+var token = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var q = require('q');
 var mongo = require('mongoskin');
-var db = mongo.db(config.connectionString, { native_parser: true });
+var db = mongo.db(config.connectionString);
 db.bind('users');
 
 var service = {};
@@ -19,10 +19,10 @@ service.update = update;
 service.delete = _delete;
 
 // export service to entire app
-module.export = service;
+module.exports = service;
 
 function authenticate(username, password) {
-    var deferred = q.defere();
+    var deferred = q.defer();
 
     db.users.findOne({ username: username }, function (err, user) {
 

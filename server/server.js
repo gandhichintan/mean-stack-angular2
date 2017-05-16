@@ -3,7 +3,7 @@ require('rootpath')();
 var express = require('express');
 var app = express();
 var cors = require('cors');
-var bodyParser = require('bosy-parser');
+var bodyParser = require('body-parser');
 var expressJwt = require('express-jwt');
 var config = require('config.json');
 
@@ -16,7 +16,7 @@ app.use(expressJwt({ secret: config.secret })
     .unless({ path: ['/users/authenticate', '/users/register'] }));
 
 //route
-app.use('/users', require('/controllers/user.controller'));
+app.use('/users', require('./controllers/user.controller'));
 
 //start server
 var port = process.env.NODE_ENV === 'production' ? '80' : '4000';

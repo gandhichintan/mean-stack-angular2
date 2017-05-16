@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
 import { AlertService,UserService } from "../services/index";
 
 @Component({
-    moduleId : module.id;
+    moduleId : module.id,
     templateUrl :'register.component.html'
 })
 export class RegisterComponent {
@@ -25,7 +25,7 @@ loading = false;
             this.userService.create(this.model)
             .subscribe(
                 data => {
-                    this.alertService.sucess('Registration successful',true);
+                    this.alertService.success('Registration successful',true);
                     this.router.navigate(['/login']);
                 },
                 error => {

@@ -5,7 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app/app/component';
+import {MdCardModule} from '@angular2-material/card';
+import {MdButtonModule} from '@angular2-material/button';
+import {MdIconModule} from '@angular2-material/icon';
+import {MdIconRegistry} from '@angular2-material/icon';
+
+import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { AppConfig } from './app.config';
 
@@ -22,7 +27,10 @@ import { RegisterComponent } from './register/index';
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutes
+        AppRoutes,
+        MdButtonModule,
+        MdCardModule,
+        MdIconModule
     ],
     declarations: [
         AppComponent,
@@ -36,7 +44,8 @@ import { RegisterComponent } from './register/index';
         AuthGuard,
         AlertService,
         AuthenticationService,
-        UserService
+        UserService,
+        MdIconRegistry
     ],
     bootstrap: [AppComponent]
 })
